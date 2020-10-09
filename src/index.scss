@@ -1,0 +1,183 @@
+$primary: #007bff;
+$font-color: rgb(101, 119, 134);
+$buttons-background: rgba(0, 123, 255, 0.1);
+$border: 0.5px solid #ddd;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+nav {
+  position: fixed !important;
+  a {
+    color: black;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+
+    i {
+      padding-right: 1rem;
+    }
+
+    .fa-user {
+      margin-left: 0.1rem;
+      margin-right: 0.2rem;
+    }
+  }
+
+  .logo {
+    width: fit-content;
+    color: $primary;
+    font-size: 2rem;
+
+    i {
+      padding: 0;
+    }
+  }
+
+  .logo:hover {
+    border-radius: 50%;
+  }
+
+  a:hover {
+    color: $primary;
+    background: $buttons-background;
+    border-radius: 20px;
+  }
+
+  .active {
+    color: $primary;
+  }
+}
+
+.main {
+  border-left: $border;
+  border-right: $border;
+  height: 100%;
+  padding-right: 0;
+  padding-left: 0;
+
+  header {
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    border-bottom: $border;
+    z-index: 3;
+    background: white;
+
+    h5 {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+
+    .fa-arrow-left {
+      margin-right: 1rem;
+      width: fit-content;
+      color: black;
+    }
+
+    .fa-arrow-left:hover {
+      color: $primary;
+    }
+
+    .addInfo {
+      font-size: 0.8rem;
+      color: $font-color;
+      top: 36px;
+      position: absolute;
+      display: block;
+      margin-left: 1.8rem;
+    }
+  }
+
+  .post {
+    padding: 1rem;
+    border-bottom: $border;
+    cursor: pointer;
+
+    .text {
+      margin-bottom: 0.3rem !important;
+    }
+  }
+
+  .post:hover {
+    background: rgba(221, 221, 221, 0.3);
+  }
+
+  .postDetails {
+    font-size: 1.7rem;
+    border-bottom: 10px solid #ddd;
+  }
+}
+
+.not-found {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.sharedButtons {
+  text-align: center;
+  color: $font-color;
+  font-size: 1rem !important;
+
+  i {
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+  }
+
+  .sharedButton {
+    margin: 1rem;
+  }
+
+  i:hover {
+    border-radius: 50%;
+    background: $buttons-background;
+    color: $primary;
+  }
+}
+
+.add-post-btn {
+  border-radius: 20px;
+  font-size: 1rem !important;
+}
+
+.post-form {
+  padding: 1rem;
+  border-bottom: 10px solid #ddd;
+
+  .add-post-btn {
+    float: right;
+  }
+}
+
+.user-icon {
+  width: 50px;
+  height: 50px;
+}
+
+#addPostText {
+  font-size: 1.4rem;
+  border: 0;
+  border-bottom: $border;
+  width: 100%;
+  resize: none;
+  height: auto;
+}
+
+#addPostText:focus {
+  outline: none;
+}
+
+#addPostText::-webkit-scrollbar {
+  width: 0;
+}
