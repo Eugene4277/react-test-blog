@@ -7,7 +7,7 @@ function Comment(props) {
     <div className="post">
       <div className="media">
         <img
-          src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-circle-512.png"
+          src={`https://randomuser.me/api/portraits/men/${comment.id}.jpg`}
           className="align-self-start mr-3 user-icon"
           alt="..."
         />

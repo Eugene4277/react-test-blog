@@ -1,6 +1,9 @@
 import { types } from "./types";
 import axios from "axios";
 
+import { setToken } from '../services/authService';
+
+
 export const fetchPosts = () => async (dispatch) => {
   dispatch(showLoader());
   await axios
@@ -17,6 +20,28 @@ export const fetchPosts = () => async (dispatch) => {
       dispatch(hideLoader());
     });
 };
+
+export const addPost = (post) => (dispatch) => {
+  dispatch({
+    type: types.ADD_POST,
+    payload: post,
+  });
+}
+
+export const deletePost = (post) => (dispatch) => {
+  dispatch({
+    type: types.DELETE_POST,
+    payload: post,
+  });
+}
+
+export const updatePost = (post) => (dispatch) => {
+  dispatch({
+    type: types.UPDATE_POST,
+    payload: post,
+  });
+}
+
 
 export const fetchUserPosts = (id) => async (dispatch) => {
   dispatch(showLoader());
@@ -37,7 +62,7 @@ export const fetchUserPosts = (id) => async (dispatch) => {
 
 export const fetchUsers = () => async (dispatch) => {
   await axios
-    .get("https://jsonplaceholder.typicode.com/users?_limit=2")
+    .get("https://jsonplaceholder.typicode.com/users")
     .then((res) => {
       dispatch({
         type: types.FETCH_USERS,
@@ -79,6 +104,30 @@ export const fetchComments = (id) => async (dispatch) => {
       dispatch(hideLoader());
     });
 };
+
+export const authUser = (user = {}) => async (dispatch) => {
+  dispatch(showLoader());
+  await axios.post('https://jsonplaceholder.typicode.com/users', { ...user })
+    .then((res) => {
+      const { data } = res;
+      dispatch({
+        type: types.AUTH_USER,
+        payload: data,
+      });
+      setToken(data);
+      dispatch(hideLoader());
+    })
+    .catch((err) => {
+      console.log(err);
+      dispatch(hideLoader());
+    });
+}
+
+export const logoutUser = () => (dispatch) => {
+  dispatch({
+    type: types.LOGOUT_USER,
+  });
+}
 
 export const showLoader = () => {
   return {

@@ -1,7 +1,11 @@
 $primary: #007bff;
+$red: #dc3545;
 $font-color: rgb(101, 119, 134);
 $buttons-background: rgba(0, 123, 255, 0.1);
 $border: 0.5px solid #ddd;
+
+$border-dark: 0.5px solid #333;
+$background-dark: #444;
 
 body {
   margin: 0;
@@ -18,12 +22,67 @@ code {
     monospace;
 }
 
+@media screen and (max-width: 991px) {
+  .account-data {
+    padding: 0 !important;
+  }
+
+  header {
+    top: 5.5rem !important;
+    border-top: $border;
+  }
+
+  nav {
+    background: #fff !important;
+    
+    a {
+      color: black !important;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+  
+      i {
+        padding-right: 1rem;
+      }
+  
+      .fa-user {
+        margin-left: 0.1rem;
+        margin-right: 0.2rem;
+      }
+    }
+
+    .logo {
+      width: fit-content;
+      color: $primary !important;
+      font-size: 2rem;
+  
+      i {
+        padding: 0;
+      }
+    }
+  
+    .logo:hover {
+      border-radius: 50%;
+    }
+  
+    a:hover {
+      color: $primary !important;
+      background: $buttons-background;
+      border-radius: 20px;
+    }
+  
+    .active {
+      color: $primary !important;
+    }
+  }
+}
+
 nav {
   position: fixed !important;
   a {
     color: black;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
+    margin-right: 1rem;
 
     i {
       padding-right: 1rem;
@@ -100,6 +159,10 @@ nav {
     }
   }
 
+  .postsContainer {
+    border-top: 10px solid #ddd;
+  }
+
   .post {
     padding: 1rem;
     border-bottom: $border;
@@ -107,6 +170,12 @@ nav {
 
     .text {
       margin-bottom: 0.3rem !important;
+    }
+
+    .media {
+      i:hover {
+        color: $primary
+      }
     }
   }
 
@@ -122,7 +191,7 @@ nav {
 
 .not-found {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 7rem;
 }
 
 .sharedButtons {
@@ -139,6 +208,10 @@ nav {
     margin: 1rem;
   }
 
+  .sharedButton:focus {
+    outline: none;
+  }
+
   i:hover {
     border-radius: 50%;
     background: $buttons-background;
@@ -153,7 +226,6 @@ nav {
 
 .post-form {
   padding: 1rem;
-  border-bottom: 10px solid #ddd;
 
   .add-post-btn {
     float: right;
@@ -163,21 +235,506 @@ nav {
 .user-icon {
   width: 50px;
   height: 50px;
+  border-radius: 50%;
 }
 
-#addPostText {
+.addPostText {
   font-size: 1.4rem;
   border: 0;
   border-bottom: $border;
   width: 100%;
   resize: none;
-  height: auto;
+  
 }
 
-#addPostText:focus {
+.addPostText:focus {
   outline: none;
 }
 
-#addPostText::-webkit-scrollbar {
+.addPostText::-webkit-scrollbar {
   width: 0;
 }
+
+.close {
+  color: $primary !important;
+  font-size: 2rem !important;
+}
+
+.close:hover {
+  color: $primary;
+}
+
+.close:focus {
+  outline: none;
+}
+
+
+
+.login-form {
+  margin-top: 6rem;
+
+  .signup-logo {
+    text-align: center;
+    font-size: 3rem;
+    padding-bottom: 1rem;
+    color: $primary;
+  }
+}
+
+
+.account-data {
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  cursor: pointer;
+
+  .account-content {
+    padding: .7rem;
+  }
+  .account-content:hover {
+    background: $buttons-background;
+    border-radius: 20px;
+
+    i {
+      color: $primary
+    }
+  }
+
+  img, .account-data-name {
+    display: inline-block;
+  }
+
+  i {
+    float: right;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+  }
+
+
+  
+}
+
+.dropdown-menu {
+  padding: 0;
+  .dropdown-item {
+    padding: 1rem;
+
+    i {
+      margin-right: .5rem;
+    }
+  }
+  .dropdown-divider {
+    margin: 0;
+  }
+}
+
+.dropdown-menu.show {
+  margin: 0 1rem;
+  box-shadow: rgba(101, 119, 134, 0.2) 0px 0px 15px, rgba(101, 119, 134, 0.15) 0px 0px 3px 1px;
+
+  .dropdown-item:hover{
+    background: $buttons-background;
+
+    i {
+      color: $primary;
+    }
+
+    i.delete-post {
+      color: $red;
+    }
+  }
+}
+
+.dropdown-menu.show > button:focus {
+  outline: none;
+}
+
+.modal-content textarea {
+  min-height: 70px ;
+}
+
+.modal {
+  font-size: 1rem !important;
+}
+
+.modal-buttons {
+  float: right;
+
+  button {
+    margin: .5rem;
+  }
+}
+
+
+.dark {
+
+  @media screen and (max-width: 991px) {
+    .account-data {
+      padding: 0 !important;
+    }
+  
+    header {
+      top: 5.5rem !important;
+      border-top: $border-dark !important;
+    }
+  
+    nav {
+      background: $background-dark !important;
+      
+      a {
+        color: #fff !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    
+        i {
+          padding-right: 1rem;
+        }
+    
+        .fa-user {
+          margin-left: 0.1rem;
+          margin-right: 0.2rem;
+        }
+      }
+  
+      .logo {
+        width: fit-content;
+        color: $primary !important;
+        font-size: 2rem;
+    
+        i {
+          padding: 0;
+        }
+      }
+    
+      .logo:hover {
+        border-radius: 50%;
+      }
+    
+      a:hover {
+        color: $primary !important;
+        background: $buttons-background;
+        border-radius: 20px;
+      }
+    
+      .active {
+        color: $primary !important;
+      }
+    }
+  }
+
+  background: $background-dark;
+  color: #fff;
+
+  nav {
+    position: fixed !important;
+    a {
+      color: #fff;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+  
+      i {
+        padding-right: 1rem;
+      }
+  
+      .fa-user {
+        margin-left: 0.1rem;
+        margin-right: 0.2rem;
+      }
+    }
+  
+    .logo {
+      width: fit-content;
+      color: $primary;
+      font-size: 2rem;
+  
+      i {
+        padding: 0;
+      }
+    }
+  
+    .logo:hover {
+      border-radius: 50%;
+    }
+  
+    a:hover {
+      color: $primary;
+      background: $buttons-background;
+      border-radius: 20px;
+    }
+  
+    .active {
+      color: $primary;
+    }
+  }
+  
+  .main {
+    border-left: $border-dark;
+    border-right: $border-dark;
+    height: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  
+    header {
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      border-bottom: $border-dark;
+      z-index: 3;
+      background: $background-dark;
+  
+      h5 {
+        display: inline-block;
+        margin-bottom: 0;
+      }
+  
+      .fa-arrow-left {
+        margin-right: 1rem;
+        width: fit-content;
+        color: #fff;
+      }
+  
+      .fa-arrow-left:hover {
+        color: $primary;
+      }
+  
+      .addInfo {
+        font-size: 0.8rem;
+        color: $font-color;
+        top: 36px;
+        position: absolute;
+        display: block;
+        margin-left: 1.8rem;
+      }
+    }
+  
+    .postsContainer {
+      border-top: 10px solid #555;
+    }
+  
+    .post {
+      padding: 1rem;
+      border-bottom: $border-dark;
+      cursor: pointer;
+  
+      .text {
+        margin-bottom: 0.3rem !important;
+      }
+  
+      .media {
+        i:hover {
+          color: $primary
+        }
+      }
+    }
+  
+    .post:hover {
+      background: rgba(221, 221, 221, 0.3);
+    }
+  
+    .postDetails {
+      font-size: 1.7rem;
+      border-bottom: 10px solid #555;
+    }
+  }
+  
+  .not-found {
+    text-align: center;
+    margin-top: 7rem;
+  }
+  
+  .sharedButtons {
+    text-align: center;
+    color: #fff;
+    font-size: 1rem !important;
+  
+    i {
+      padding: 0.5rem;
+      margin: 0 0.5rem;
+    }
+  
+    .sharedButton {
+      margin: 1rem;
+    }
+  
+    .sharedButton:focus {
+      outline: none;
+    }
+  
+    i:hover {
+      border-radius: 50%;
+      background: $buttons-background;
+      color: $primary;
+    }
+  }
+  
+  .add-post-btn {
+    border-radius: 20px;
+    font-size: 1rem !important;
+  }
+  
+  .post-form {
+    padding: 1rem;
+  
+    .add-post-btn {
+      float: right;
+    }
+  }
+  
+  .user-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .addPostText {
+    font-size: 1.4rem;
+    border: 0;
+    border-bottom: $border-dark;
+    width: 100%;
+    resize: none;
+    background: $background-dark;
+    color: #fff
+    
+  }
+  
+  .addPostText:focus {
+    outline: none;
+  }
+  
+  .addPostText::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  .close {
+    color: $primary !important;
+    font-size: 2rem !important;
+  }
+  
+  .close:hover {
+    color: $primary;
+  }
+  
+  .close:focus {
+    outline: none;
+  }
+  
+  
+  
+  .login-form {
+    margin-top: 6rem;
+  
+    .signup-logo {
+      text-align: center;
+      font-size: 3rem;
+      padding-bottom: 1rem;
+      color: $primary;
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    .account-data {
+      padding: 0 !important;
+    }
+  }
+  
+  .account-data {
+    position: sticky;
+    top: 0;
+    padding: 1rem;
+    cursor: pointer;
+  
+    .account-content {
+      padding: .7rem;
+    }
+    .account-content:hover {
+      background: $buttons-background;
+      border-radius: 20px;
+  
+      i {
+        color: $primary
+      }
+    }
+  
+    img, .account-data-name {
+      display: inline-block;
+    }
+  
+    i {
+      float: right;
+      margin-top: 1rem;
+      margin-right: 1rem;
+      font-size: 1.2rem;
+    }
+  
+  
+    
+  }
+  
+  .dropdown-menu {
+    background: #555;
+    padding: 0;
+    .dropdown-item {
+      padding: 1rem;
+      color: #fff;
+      i {
+        margin-right: .5rem;
+      }
+    }
+    .dropdown-divider {
+      margin: 0;
+      border-top: $border-dark;
+    }
+  }
+  
+  .dropdown-menu.show {
+    margin: 0 1rem;
+    box-shadow: rgba(250, 251, 252, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px;
+  
+    .dropdown-item:hover{
+      background: $buttons-background;
+  
+      i {
+        color: $primary;
+      }
+  
+      i.delete-post {
+        color: $red;
+      }
+    }
+  }
+  
+  .dropdown-menu.show > button:focus {
+    outline: none;
+  }
+  
+  .modal-content textarea {
+    min-height: 70px ;
+    background: $background-dark;
+    color: #fff;
+  }
+  
+  .modal {
+    font-size: 1rem !important;
+    
+  }
+
+  .modal-content {
+    background: $background-dark;
+    color: #fff;
+
+    .modal-header {
+      border-bottom: $border-dark;
+    }
+  }
+  
+  .modal-buttons {
+    float: right;
+  
+    button {
+      margin: .5rem;
+    }
+  }
+}
+
+

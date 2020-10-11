@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import Header from "./Header";
-import Post from "./Post";
-import Comment from "./Comment";
-
+import Header from "../components/Header";
+import Post from "../components/Post";
+import Comment from "../components/Comment";
 import { fetchComments } from "../redux/actions";
+import { withRouter } from "react-router-dom";
 
 function PostDetails(props) {
   const post = props.location.state[0];
@@ -17,7 +17,7 @@ function PostDetails(props) {
   }, []);
 
   return (
-    <div>
+    <>
       <Header goBackArrow={true} headerName={"Post"} />
       <div className="postDetails">
         <Post post={post} user={user} />
@@ -25,7 +25,7 @@ function PostDetails(props) {
       {comments.map((comment) => (
         <Comment key={comment.id} comment={comment} />
       ))}
-    </div>
+    </>
   );
 }
 
@@ -35,4 +35,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchComments })(PostDetails);
+export default withRouter(connect(mapStateToProps, { fetchComments })(PostDetails));

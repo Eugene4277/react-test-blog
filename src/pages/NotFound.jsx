@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function NotFound(props) {
   return (
-    <div className="not-found">
+    <div className="col-12 not-found">
       <h2>Sorry, that page doesn’t exist!</h2>
-      <p>Why not try a search to find something else?</p>
+      <p><Link onClick={() => props.history.goBack()}> Why not try a search to find something else? </Link></p>
     </div>
   );
 }

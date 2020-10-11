@@ -9,6 +9,7 @@ function Header(props) {
         <i
           onClick={() => props.history.goBack()}
           className="fas fa-arrow-left"
+          style={{ cursor: "pointer" }}
         ></i>
       )}
       <h5>{headerName}</h5>
