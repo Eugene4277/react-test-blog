@@ -23,17 +23,35 @@ code {
 }
 
 @media screen and (max-width: 991px) {
+  .main {
+    margin-top: 4.5rem !important;
+  }
+
+  .sharedButton {
+    margin: .5rem !important;
+  }
+
   .account-data {
     padding: 0 !important;
   }
 
   header {
-    top: 5.5rem !important;
+    top: 4.5rem !important;
     border-top: $border;
   }
 
+
+
   nav {
     background: #fff !important;
+
+    .navbar-toggler {
+      background: $primary;
+    }
+
+    .navbar-toggler:focus {
+      outline: none;
+    }
     
     a {
       color: black !important;
@@ -370,12 +388,20 @@ nav {
 .dark {
 
   @media screen and (max-width: 991px) {
+ 
+    .sharedButton {
+      margin: .5rem !important;
+    }
+    
+    .main {
+      margin-top: 4.5rem !important;
+    }
     .account-data {
       padding: 0 !important;
     }
   
     header {
-      top: 5.5rem !important;
+      top: 4.5rem !important;
       border-top: $border-dark !important;
     }
   

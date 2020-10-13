@@ -29,12 +29,11 @@ function SignUp(props) {
     }
   };
 
-
   return (
     <>
       <form
         onSubmit={handleSubmit}
-        className="col-6 offset-3 login-form"
+        className="col-12 col-md-6 offset-md-3 login-form"
         data-testid="registr"
       >
         <div className="signup-logo" >

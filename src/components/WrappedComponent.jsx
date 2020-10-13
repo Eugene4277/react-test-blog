@@ -9,7 +9,7 @@ function WrappedComponent({ component: Component }) {
       <div className="col-12">
         <ResponsiveNav />
       </div>
-      <div className="col-12 main" style={{ marginTop: "5.5rem" }}>
+      <div className="col-12 main">
         <Component />
       </div>
     </>);
